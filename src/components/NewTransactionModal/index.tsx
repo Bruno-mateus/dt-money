@@ -33,7 +33,7 @@ export function NewTransactionModal(){
 async function handleNewTransactionSubmit(data:searchFormInputs){
     await new Promise(resolve=>setTimeout(resolve, 2000))
     console.log(data)
-}   
+}    
 
     return(
     <Dialog.Portal>
@@ -67,7 +67,9 @@ async function handleNewTransactionSubmit(data:searchFormInputs){
 
                         console.log(field)
                     return(
-                    <TransactionType onValueChange={field.onChange} value={field.value}>  
+                    <TransactionType 
+                        onValueChange={field.onChange} 
+                        value={field.value}>  
                         <TransactionTypeButton variant="income" value="income">
                           <ArrowCircleUp size={24}/>  Entrada
                         </TransactionTypeButton>
