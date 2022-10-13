@@ -5,6 +5,9 @@ import * as z from 'zod';
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import { useContext } from 'react';
+import { TransactionContext } from '../../contexts/TransactionsContext';
+
 const newTransactionsFormSchema = z.object({
     description:z.string(),
     type:z.enum(["income","outcome"]),
@@ -15,25 +18,39 @@ const newTransactionsFormSchema = z.object({
 
 
 export function NewTransactionModal(){
+    const {createTransaction} = useContext(TransactionContext)
 
-    type searchFormInputs = z.infer<typeof newTransactionsFormSchema>
-
+    type NewTransactionFormInput = z.infer<typeof newTransactionsFormSchema>
+    
+   
+    
     const {
         control,
         register,
         handleSubmit,
-        formState:{isSubmitting}
-    }= useForm<searchFormInputs>({
+        formState:{isSubmitting},
+        reset
+    }= useForm<NewTransactionFormInput>({
         resolver:zodResolver(newTransactionsFormSchema),
         defaultValues:{
             type:'income',
         }
     })
     
-async function handleNewTransactionSubmit(data:searchFormInputs){
-    await new Promise(resolve=>setTimeout(resolve, 2000))
-    console.log(data)
-}    
+
+
+    async function handleCreateTransaction(data:NewTransactionFormInput){
+
+        const {category,description,price,type} = data
+
+        await createTransaction({
+            category,
+            description,
+            price,
+            type
+        })   
+        reset()
+      } 
 
     return(
     <Dialog.Portal>
@@ -44,7 +61,7 @@ async function handleNewTransactionSubmit(data:searchFormInputs){
                 <X size={24}/>
             </CloseButton>
             <Dialog.Title>Nova transação</Dialog.Title>
-            <form onSubmit={handleSubmit(handleNewTransactionSubmit)}>
+            <form onSubmit={handleSubmit(handleCreateTransaction)}>
                 <input
                  type="text"
                  {...register('description')}

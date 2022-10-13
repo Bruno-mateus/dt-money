@@ -18,6 +18,7 @@ export function SearchForm(){
         resolver:zodResolver(searchFormSchema)
     })
     const {fetchTransactions} = useContext(TransactionContext)
+    
     async function handleSearchForm(data:searchFormInputs){
         
         await fetchTransactions(data.query)

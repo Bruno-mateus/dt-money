@@ -1,20 +1,44 @@
 {
-    "transactions":[
-        {
-            "id":1,
-            "description":"Desenvolvimento web",
-            "type":"income",
-            "category":"Venda",
-            "price":1400,
-            "createdAt":"2022-10-05T07:29:08.805Z"
-        },
-        {
-            "id":2,
-            "description":"Alimentação",
-            "type":"outcome",
-            "category":"Compra",
-            "price":80.00,
-            "createdAt":"2022-10-05T07:29:08.805Z"
-        }
-    ]
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento web",
+      "type": "income",
+      "category": "Venda",
+      "price": 1400,
+      "createdAt": "2022-10-05T07:29:08.805Z"
+    },
+    {
+      "id": 2,
+      "description": "Alimentação",
+      "type": "outcome",
+      "category": "Compra",
+      "price": 80,
+      "createdAt": "2022-10-05T07:29:08.805Z"
+    },
+    {
+      "category": "manutenção",
+      "description": "rtx 3080",
+      "price": 3500,
+      "type": "outcome",
+      "createdAt": "2022-10-13T06:14:15.484Z",
+      "id": 3
+    },
+    {
+      "category": "trampo",
+      "description": "vendas",
+      "price": 2300,
+      "type": "income",
+      "createdAt": "2022-10-13T06:16:43.875Z",
+      "id": 4
+    },
+    {
+      "category": "trampo",
+      "description": "Desevenvolvimento web",
+      "price": 3000,
+      "type": "income",
+      "createdAt": "2022-10-13T06:18:45.405Z",
+      "id": 5
+    }
+  ]
 }

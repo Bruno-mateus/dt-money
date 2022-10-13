@@ -11,7 +11,7 @@ export function Transactions(){
 
     
 const {transactions} = useContext(TransactionContext)
-console.log(transactions)
+
     return(
         <main>          
             <Summary/>
